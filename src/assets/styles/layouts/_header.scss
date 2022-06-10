@@ -1,0 +1,47 @@
+.app__header {
+    background-color: $color-primary;
+    // background: linear-gradient(180deg, rgba($color-primary, 1) 0%, darken($color-primary, 5%) 100%);
+    grid-column: 1 / span 2;
+    color: #fff;
+    @include border(bottom);
+
+    @include color-scheme(dark) {
+        background-color: lighten($color: $color-dark, $amount: 0%);
+        color: #fff
+    }
+
+    @include responsive(md) {
+        grid-column: initial;
+    }
+
+    &-container {
+        // @include container;
+        padding: 0 2rem;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        justify-content: space-between;
+    }
+
+    &-brand {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1em;
+    }
+
+    &-room-id {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        color: #fff;
+        background-color: black;
+        padding: 0.5rem 1rem;
+        // border-radius: 5px;
+        cursor: pointer;
+        @include border;
+        @include click-behavior(black);
+    }
+}

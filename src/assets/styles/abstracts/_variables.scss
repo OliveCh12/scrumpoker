@@ -1,0 +1,10 @@
+$color-primary: hsl(176, 60%, 49%);
+$color-light: #fff;
+$color-dark: #000000;
+
+
+:root {
+    --color-primary: $color-primary;
+    --color-light: $color-light;
+    --color-dark: $color-dark;
+}

@@ -1,0 +1,42 @@
+.summary {
+    // background-color: red;
+    height: 100%;
+
+    &__container {
+        display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+        height: 100%;
+        box-sizing: border-box;
+        gap: 0.5rem;
+    }
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 0.3rem;
+
+        @include color-scheme(dark) {
+            color: #fff;
+        }
+        // background-color: rebeccapurple;
+
+        &-value {
+            color: $color-primary;
+            font-weight: 900;
+            font-size: 2em;
+
+            @include responsive(md) {
+                font-size: 1.5em;
+            }
+
+
+        }
+        &-title {
+            font-size: 0.9em;
+        }
+    }
+}

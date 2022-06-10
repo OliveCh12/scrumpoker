@@ -1,0 +1,105 @@
+.scrum-table {
+
+    &__container {
+        display: grid;
+        grid-auto-flow: row;
+        gap: 0.5rem;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+
+    &__item {
+        position: relative;
+        background-color: #fff;
+        font-size: 0.8em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+        height: 50px;
+        transition: 100ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.7;
+            transform: translateX(5px);
+        }
+
+
+        @include color-scheme(dark) {
+            background-color: $color-dark;
+        }
+
+
+        @include color-scheme(dark) {
+            color: #fff;
+        }
+
+        &-progress {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: darken($color-light, 0%);
+            height: 100%;
+
+        &.active {
+            // background-color: rgba($color: $color-primary, $alpha: 1);
+            border: 1px solid rgba($color: $color-primary, $alpha: 1.0);
+            color: $color-primary;
+        }
+            box-sizing: border-box;
+            transition: 500ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+
+            @include color-scheme(dark) {
+                background-color: lighten($color-dark, 5%);
+
+            }
+
+
+            &.fliped {
+                width: 0% !important;
+            }
+
+  
+
+        }
+
+        &-username {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.2em;
+            position: absolute;
+            left: 1rem;
+
+        }
+
+        &-uservote {
+            position: absolute;
+            right: 0;
+            @include border;
+            font-size: 1em;
+            background-color: $color-primary;
+            color: #fff;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 50px;
+        }
+
+        &.active {
+            border: 1px solid red;
+        }
+    }
+
+}
+
+
+
+// @for $i from 1 to 10 {
+//     .scrum-table__item:nth-child(#{$i}) {
+//         transition-delay: #{$i*100}ms;
+//     }
+// }
