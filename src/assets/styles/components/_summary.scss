@@ -1,11 +1,16 @@
 .summary {
     // background-color: red;
     height: 100%;
+    transition: 300ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    background-color: rgba($color: $color-primary, $alpha: 0.1);
+
+    cursor: pointer;
+
 
     &__container {
         display: flex;
-  justify-content: space-between;
-  padding: 2rem;
+        justify-content: space-between;
+        padding: 2rem;
         height: 100%;
         box-sizing: border-box;
         gap: 0.5rem;
@@ -22,6 +27,7 @@
         @include color-scheme(dark) {
             color: #fff;
         }
+
         // background-color: rebeccapurple;
 
         &-value {
@@ -35,8 +41,23 @@
 
 
         }
+
         &-title {
             font-size: 0.9em;
+        }
+    }
+    &--hidden {
+        background-color: darken($color-primary, 25%);
+        transform: translateY(100px);
+        border-top-right-radius: 25px;
+        border-top-left-radius: 25px;
+
+        &:hover {
+            background-color: $color-primary;
+        }
+
+        .summary__section {
+            display: none;
         }
     }
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-// import "./App.css";
+import { GlobalProvider, GlobalContext } from "./GlobalContext";
 
 import Header from "./Layouts/Header/index";
 import CardsList from "./components/CardsList";
@@ -102,41 +102,43 @@ function App() {
   }, [userCount, activeUser]);
 
   return (
-    <div className="app">
-      <div className="app__container">
-        <Header />
-        <div className="app__panel app__panel--controller">
-          <UserInfos
-            value={activeUser.userVote}
-            userName={activeUser.userName}
-            userType={activeUser.userType}
-          />
-          <CardsList>
-            {cards.map((card: any, index: number) => (
-              <Card
-                value={index + 1}
-                onCardClick={() => handleClick(index + 1)}
-                userCount={userCount}
-                key={index}
-              />
-            ))}
-          </CardsList>
-        </div>
-        <div className="app__panel app__panel--stats">
-          <ScrumTable
-            data={activeUsers}
-            activeUser={activeUser}
-            setSelected={(callback) => {
-              setActiveUser({ ...activeUser, userName: callback });
-              return callback;
-            }}
-          />
-        </div>
-        <div className="app__panel app__panel--infos">
-          <Summary data={activeUsers} />
+    <GlobalProvider>
+      <div className="app">
+        <div className="app__container">
+          <Header />
+          <div className="app__panel app__panel--controller">
+            <UserInfos
+              value={activeUser.userVote}
+              userName={activeUser.userName}
+              userType={activeUser.userType}
+            />
+            <CardsList>
+              {cards.map((card: any, index: number) => (
+                <Card
+                  value={index + 1}
+                  onCardClick={() => handleClick(index + 1)}
+                  userCount={userCount}
+                  key={index}
+                />
+              ))}
+            </CardsList>
+          </div>
+          <div className="app__panel app__panel--stats">
+            <ScrumTable
+              data={activeUsers}
+              activeUser={activeUser}
+              setSelected={(callback) => {
+                setActiveUser({ ...activeUser, userName: callback });
+                return callback;
+              }}
+            />
+          </div>
+          <div className="app__panel app__panel--infos">
+            <Summary data={activeUsers} />
+          </div>
         </div>
       </div>
-    </div>
+    </GlobalProvider>
   );
 }
 
