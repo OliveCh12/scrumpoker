@@ -48,9 +48,9 @@
     }
     &--hidden {
         background-color: darken($color-primary, 25%);
-        transform: translateY(100px);
-        border-top-right-radius: 25px;
-        border-top-left-radius: 25px;
+        // transform: translateY(100px);
+        // border-top-right-radius: 25px;
+        // border-top-left-radius: 25px;
 
         &:hover {
             background-color: $color-primary;

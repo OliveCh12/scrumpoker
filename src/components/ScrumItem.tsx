@@ -19,25 +19,23 @@ const ScrumItem = (props: Props) => {
     }
   }
 
-  React.useEffect(() => {
-    console.log(props.setSelected())
-  }, [])
-
-
   return (
     <div className={`scrum-table__item`} onClick={props.setSelected}>
-      <div
+      {/* <div
         className={`scrum-table__item-progress ${
           props.isFliped ? "fliped" : ""
         } ${highlightActiveUser() ? "active" : ""}`}
         style={{ width: props.userVote * 10 + "%" }}
-      >
+      > */}
         <span className="scrum-table__item-username">
           {" "}
           <FaUserCircle /> {props.username} {highlightActiveUser()}
         </span>
+        <div className="scrum-table__item-progress">
+          <div className="scrum-table__item-progress-value" style={{ width: props.userVote * 10 + "%" }}></div>
+        </div>
         <span className="scrum-table__item-uservote">{props.userVote}</span>
-      </div>
+      {/* </div> */}
     </div>
   );
 };

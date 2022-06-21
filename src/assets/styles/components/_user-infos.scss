@@ -10,8 +10,12 @@
         align-items: center;
         gap: 0.5rem;
         background-color: darken($color-primary, 25%);
-        padding: 1rem 2rem;
+        padding: 1rem 1rem;
         color: #fff;
+
+        @include responsive(md) {
+            padding: 0.5rem  1rem;
+        }
 
     }
 

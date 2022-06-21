@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 
 type Props = {
   value: number;
-  onCardClick: any
+  onCardClick?: () => void;
   userCount: number;
 };
 

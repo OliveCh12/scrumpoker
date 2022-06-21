@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { GlobalProvider, GlobalContext } from "./GlobalContext";
+import { Routes, Route, Link } from "react-router-dom";
 
 import Header from "./Layouts/Header/index";
 import CardsList from "./components/CardsList";
@@ -7,6 +8,8 @@ import Card from "./components/Card";
 import UserInfos from "./components/UserInfos";
 import ScrumTable from "./components/ScrumTable";
 import Summary from "./components/Summary";
+import Home from "./Layouts/Home/Home";
+import Dashboard from "./Layouts/Dashboard/Dashboard";
 function App() {
   const [activeUser, setActiveUser] = useState({
     userType: "player",
@@ -56,7 +59,7 @@ function App() {
       userName: "Joahcline Devar",
       userVote: null,
     },
-    ,
+
   ]);
   const [userCount, setUserCount] = useState(0);
   const [countHistory, setCountHistory] = useState<any>([]);
@@ -103,41 +106,10 @@ function App() {
 
   return (
     <GlobalProvider>
-      <div className="app">
-        <div className="app__container">
-          <Header />
-          <div className="app__panel app__panel--controller">
-            <UserInfos
-              value={activeUser.userVote}
-              userName={activeUser.userName}
-              userType={activeUser.userType}
-            />
-            <CardsList>
-              {cards.map((card: any, index: number) => (
-                <Card
-                  value={index + 1}
-                  onCardClick={() => handleClick(index + 1)}
-                  userCount={userCount}
-                  key={index}
-                />
-              ))}
-            </CardsList>
-          </div>
-          <div className="app__panel app__panel--stats">
-            <ScrumTable
-              data={activeUsers}
-              activeUser={activeUser}
-              setSelected={(callback) => {
-                setActiveUser({ ...activeUser, userName: callback });
-                return callback;
-              }}
-            />
-          </div>
-          <div className="app__panel app__panel--infos">
-            <Summary data={activeUsers} />
-          </div>
-        </div>
-      </div>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/session/:id" element={<Dashboard />}></Route>
+      </Routes>
     </GlobalProvider>
   );
 }
