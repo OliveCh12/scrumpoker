@@ -47,7 +47,7 @@ const Summary = (props: Props) => {
         </div>
         <div className="summary__section">
           <span className="summary__section-value">
-            {calculateTotalResponses(props.data)}
+            {calculateTotalResponses(props.data)} / {props.data.length}
           </span>
           <span className="summary__section-title">Responses</span>
         </div>
